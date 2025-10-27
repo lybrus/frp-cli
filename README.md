@@ -4,7 +4,6 @@ A lightweight npm wrapper around the **FRP client ([repo](https://github.com/fat
 
 This package automatically downloads the appropriate `frpc` binary for your platform at install time, so you can use `frpc` directly without manually downloading or managing binaries.
 
----
 
 ## Installation
 
@@ -25,8 +24,6 @@ The installer will download `frpc` into:
 ./bin/native/
 ```
 
----
-
 ## Usage
 
 ```bash
@@ -40,7 +37,28 @@ frpc --version
 frpc -c ./frpc.ini --log_level=info
 ```
 
----
+### Automatic Server & Token Injection
+
+If you set environment variables:
+
+- `FRP_SERVER` — host:port of the FRPS server
+- `FRP_TOKEN` — authentication token
+
+Then running `frpc` with **no arguments** automatically expands to:
+
+```bash
+frpc -s "$FRP_SERVER" -t "$FRP_TOKEN"
+```
+
+Example:
+
+```bash
+export FRP_SERVER="my.server.com:7000"
+export FRP_TOKEN="super-secret"
+frpc
+```
+
+If you manually specify `-s` (`--server`) or `-t` (`--token`), your explicit values always override the env values.
 
 ## Updating `frpc`
 
@@ -70,7 +88,6 @@ frpc-update --repo=myfork/frp
 
 > Updating clears `bin/native/` and installs the new binary cleanly.
 
----
 
 ## How It Works
 
@@ -87,7 +104,6 @@ frpc-update --repo=myfork/frp
 
 2. The `frpc` launcher selects the correct binary at runtime and executes it.
 
----
 
 ## Supported Platforms
 
@@ -97,7 +113,6 @@ frpc-update --repo=myfork/frp
 | macOS   | x64, arm64      |
 | Windows | x64, arm64      |
 
----
 
 ## Environment Variables (Installation-time)
 
@@ -109,7 +124,6 @@ frpc-update --repo=myfork/frp
 | `FRPC_USE_CURL`         | Force using `curl` for downloading | `FRPC_USE_CURL=1 npm i frp-cli`         |
 | `FRP_REPO`              | Use a different FRP release repo   | `FRP_REPO=myfork/frp npm i frp-cli`     |
 
----
 
 ## Environment Variables (Runtime)
 
@@ -123,7 +137,6 @@ Expected values:
 * `FRPC_FORCE_PLATFORM`: `linux`, `darwin`, `win32`
 * `FRPC_FORCE_ARCH`: `x64`, `arm64`, `arm`
 
----
 
 ## Uninstall
 
