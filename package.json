@@ -1,0 +1,40 @@
+{
+  "name": "frp-cli",
+  "version": "0.1.0",
+  "description": "NPM package for easy frp client usage",
+  "homepage": "https://github.com/lybrus/frp-cli#readme",
+  "bugs": {
+    "url": "https://github.com/lybrus/frp-cli/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/lybrus/frp-cli.git"
+  },
+  "license": "ISC",
+  "author": "Damir Rashidov",
+  "type": "commonjs",
+  "scripts": {
+    "postinstall": "node scripts/fetch-frpc.js"
+  },
+  "devDependencies": {
+    "tar": "^7.5.1",
+    "unzipper": "^0.12.3"
+  },
+  "bin": {
+    "frpc": "bin/frpc.js",
+    "frpc-update": "bin/frpc-update.js"
+  },
+  "files": [
+    "bin/"
+  ],
+  "keywords": [
+    "frp",
+    "frpc",
+    "reverse-proxy",
+    "tunnel",
+    "cli"
+  ],
+  "dependencies": {
+    "axios": "^1.12.2"
+  }
+}
