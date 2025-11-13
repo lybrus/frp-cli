@@ -1,5 +1,5 @@
 {
-  "name": "frp-cli_",
+  "name": "frp-cli",
   "version": "0.1.5",
   "description": "NPM package for easy frp client usage",
   "homepage": "https://github.com/lybrus/frp-cli#readme",
